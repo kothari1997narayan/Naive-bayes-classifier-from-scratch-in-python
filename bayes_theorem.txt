@@ -1,0 +1,74 @@
+Bayes Theorem:
+			Likelihood * Class prior probability
+Posterior Probability = -------------------------------------
+			    Predictor prior probability
+		
+  	       P(x|c) * p(c)
+   P(c|x) = ------------------ 
+		 P(x)
+
+
+
+
+
+P(y=Yes|x) = P(Yes|Rainy,Mild,Normal,t)
+         P(Rainy,Mild,Normal,t|Yes) * P(Yes)
+       = ___________________________________
+                P(Rainy,Mild,Normal,t)
+
+
+         P(Rainy|Yes)*P(Mild|Yes)*P(Normal|Yes)*P(t|Yes)*P(Yes)
+       = ______________________________________________________
+                    P(Rainy)*P(Mild)*P(Normal)*P(t)
+
+
+         (2/9) * (4/9) * (6/9) * (3/9) * (9/14)
+       = _______________________________________
+            (5/14) * (6/14) * (7/14) * (6/14)
+       
+       = 0.43 
+
+
+
+P(y=No|x) = P(No|Rainy,Mild,Normal,t)
+
+          P(Rainy,Mild,Normal,t|No) * P(No)
+       = ___________________________________
+                P(Rainy,Mild,Normal,t)
+
+
+          P(Rainy|No)*P(Mild|No)*P(Normal|No)*P(t|No)*P(No)
+       = ______________________________________________________
+                    P(Rainy)*P(Mild)*P(Normal)*P(t)
+
+
+          (3/5) * (2/5) * (1/5) * (3/5) * (5/14)
+       = _______________________________________
+            (5/14) * (6/14) * (7/14) * (6/14)
+       
+       = 0.31
+
+
+Now, P(Play=Yes|Rainy,Mild,Normal,t) has the highest Posterior probability.
+
+
+
+
+M-estimate
+there could be inputs because of that P(x|c) is zero which will make our prediction hard or no prediction...
+
+In this case we usually do laplacian smoothing
+- A nonzero prior estimate p for Pr(A | B), and
+- A number m that says how confident we are of our prior estimate p, as measured in number of samples
+
+
+  	       P(x|c) * p(c) + m*p
+   P(c|x) = ---------------------- 
+		 P(x)   +  m
+
+
+usuallu, this is the case
+
+  	       P(x|c) * p(c) + 1
+   P(c|x) = --------------------------
+		 P(x)  +   number_of_unique_output 
