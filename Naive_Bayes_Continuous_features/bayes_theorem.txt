@@ -1,0 +1,58 @@
+Bayes Theorem:
+			Likelihood * Class prior probability
+Posterior Probability = -------------------------------------
+			    Predictor prior probability
+		
+  	      P(x|c) * p(c)
+   P(c|x) = ------------------ 
+		 P(x)
+
+
+
+Gaussian Naive Bayes:
+    
+
+ 			1 * exp(- (x - mean)^2 / 2*(var(x)^2)))
+P(x|c) =	----------------------------------------------------
+				sqrt(2 * pi * var(x)^2)
+
+
+
+Here X is Random Variable for input features and C is the Random Variable for the class
+
+So for example 
+In Iris we have four continuous features : SepalLengthCm, SepalWidthCm, PetalLengthCm, PetalWidthCm
+
+And 3 different classes, so C can take values from [0, 1, 2]
+
+
+Then P(x) is nothing but joint probability of all four features i.e. 
+P(SepalLengthCm, SepalWidthCm, PetalLengthCm, PetalWidthCm)
+
+And when we try to find P(0/x), P(1/x) and P(2/x) for a given sample..
+P(x) will be same for all the three conditional probabilities.. So we can ignore P(x) in our calculations
+
+
+P(y=0|x) = P(0|SepalLengthCm, SepalWidthCm, PetalLengthCm, PetalWidthCm)
+         
+	 = P(SepalLengthCm, SepalWidthCm, PetalLengthCm, PetalWidthCm|0) * P(0)
+	 
+	 = P(SepalLengthCm|0)*P(SepalWidthCm|0)*P(PetalLengthCm|0)*P(PetalWidthCm|0)*P(0)
+
+
+P(y=1|x) = P(1|SepalLengthCm, SepalWidthCm, PetalLengthCm, PetalWidthCm)
+         
+	 = P(SepalLengthCm, SepalWidthCm, PetalLengthCm, PetalWidthCm|1) * P(1)
+	 
+	 = P(SepalLengthCm|1)*P(SepalWidthCm|1)*P(PetalLengthCm|1)*P(PetalWidthCm|1)*P(1)
+
+
+P(y=2|x) = P(2|SepalLengthCm, SepalWidthCm, PetalLengthCm, PetalWidthCm)
+         
+	 = P(SepalLengthCm, SepalWidthCm, PetalLengthCm, PetalWidthCm|2) * P(2)
+	 
+	 = P(SepalLengthCm|2)*P(SepalWidthCm|2)*P(PetalLengthCm|2)*P(PetalWidthCm|2)*P(2)
+
+
+
+Whichever has higher probability will be predicted as final result
